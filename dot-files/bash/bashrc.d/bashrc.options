@@ -1,0 +1,39 @@
+# -*- shell-script -*-
+# ------------------------------------------------------------ #
+#
+# This file is located in the .bashrc.d directory.  It will be
+# run when .bashrc is loaded.
+#
+# ------------------------------------------------------------
+# This file contains options for bash and various other
+# programs
+# ------------------------------------------------------------ #
+
+# hostname: useful for many things
+export HOSTNAME
+
+# Make less search case insensitively (-I), and display colors (-R)
+export LESS="-M -I -R"
+
+# Make grep colorized
+export GREP_OPTIONS='--color=auto'
+
+# FIGNORE - colon-separated list of suffixes to ignore when doing tab
+# completion. Use it to ignore .svn directories.
+export FIGNORE=.svn
+
+# Editors, mostly for VCS commits.
+export EDITOR=emacs
+export SVN_EDITOR='emacs -nw -Q'
+export GIT_EDITOR='emacs -nw -Q'
+export HGEDITOR='emacs -nw -Q'
+export BZR_EDITOR='emacs -nw -Q'
+export ALTERNATE_EDITOR=emacs
+
+# Keep history 'forever'
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000
+
+# Export the pythonpath to be (at least) the empty string, which adds
+# the current directory to PYTHONPATH (yes, this is weird).
+export PYTHONPATH=$PYTHONPATH:""

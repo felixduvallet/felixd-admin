@@ -1,0 +1,46 @@
+# -*- shell-script -*-
+# ------------------------------------------------------------ #
+# Bash terminal prompt with git information, using git-prompt.sh
+# source: http://neverstopbuilding.com/gitpro
+# ------------------------------------------------------------ #
+
+BASHRC_DIR=$1  # First argument is bashrc directory.
+GIT_PROMPT=$BASHRC_DIR/git/git-prompt.sh
+
+# Only do this if the file exists, and it's an interactive prompt.
+if [ -f $GIT_PROMPT ] && [ "$PS1" ]
+then
+    if [ "$PS1" ]; then
+        # Debugging for now.
+        echo "git prompt $GIT_PROMPT"
+    fi
+
+    source $GIT_PROMPT
+
+    # Colors for the git part.
+    MAGENTA="\[\033[0;35m\]"
+    YELLOW="\[\033[0;33m\]"
+    LIGHT_GRAY="\[\033[0;37m\]"
+    CYAN="\[\033[0;36m\]"
+
+    GIT_PS1_SHOWDIRTYSTATE=true
+    GIT_PS1_SHOWUPSTREAM="auto"
+    GIT_PS1_SHOWCOLORHINTS=1
+
+    # PS1 = user@host (git) directory $
+    # (git is only present in a repository)
+    export PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h"'$(
+        if [[ $(__git_ps1) =~ \*\)$ ]]
+        # a file has been modified but not added
+        then echo "'$YELLOW'"$(__git_ps1 " (%s)")
+        elif [[ $(__git_ps1) =~ \+\)$ ]]
+        # a file has been added, but not commited
+        then echo "'$CYAN'"$(__git_ps1 " (%s)")
+        # the state is clean, changes are commited
+        else echo "'$LIGHT_GRAY'"$(__git_ps1 " (%s)")
+        fi
+        )'"\[\033[01;34m\] \w\[\033[01;34m\] \$\[\033[00m\] "
+
+    # NOTE: Default $PS1 is
+    # ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\]
+fi

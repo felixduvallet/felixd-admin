@@ -1,0 +1,82 @@
+# -*- shell-script -*-
+# ------------------------------------------------------------ #
+#
+# This file is located in the .bashrc.d directory.  It will be
+# run when .bashrc is loaded.
+#
+# ------------------------------------------------------------
+# This file contains aliases for bash
+# ------------------------------------------------------------ #
+
+# Aliases (including common typos)
+# ls (sadly) changes depending on os type -- handle mac and linux differently.
+case $OSTYPE in
+    "linux-gnu") alias ls='ls -F --color=auto' ;;
+    *"darwin"*) alias ls='ls -F -G' ;;
+    *)
+	if [ "$PS1" ]; then
+	    echo "Unknown OS type: ls alias unchanged";
+	fi
+	;;
+esac
+
+alias lh='ls -lhF'
+alias llh='ls -lhF'
+alias ll='ls -lF'
+alias la='ls -aF'
+alias lla='ls -laF'
+alias l='ls -F'
+alias sl=ls
+alias lks=ls
+
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+
+# Various typos
+alias les=less
+
+# lesspipe: input pre-processor for less
+case $OSTYPE in
+    "linux-gnu") eval $(lesspipe) ;;
+    *"darwin"*) eval $(/usr/local/bin/lesspipe.sh) ;;
+    *)
+	if [ "$PS1" ]; then
+	    echo "Unknown OS type: no lesspipe";
+	fi
+	;;
+esac
+
+
+# Symlink to a often-used working directory (for example current
+# project, assignment, etc...), symlinked in home as currentdir
+alias cdcurrent='cd -P ~/currentdir'
+
+# Show largest (size) 10 files, sorted.
+alias dums='du -cms * | sort -rn | head'
+
+# Ping 8.8.8.8, a known DNS server.
+alias p8='ping 8.8.8.8'
+
+# Run GDB directly with arguments: call gdba ./command --with --params
+alias gdba='gdb --args'
+
+# Mercurial diff (current directory)
+alias hdl='hg diff'
+alias gh='hg'
+alias hgs='hg st .'
+
+# Kill job 1, 2, etc..
+alias k1='kill %1'
+alias k2='kill %2'
+alias k3='kill %3'
+
+# For wget, always try to continue a file.
+alias wget='wget -c'
+
+# xclip: copy text to clipboard
+alias xclip='xclip -selection c'
+
+# QIV - quick image viewer (for current directory)
+alias q.='qiv .'
+

@@ -1,0 +1,27 @@
+# -*- shell-script -*-
+# ------------------------------------------------------------ #
+# 
+# This file is located in the .bashrc.d directory.  It will be
+# run when .bashrc is loaded.
+# 
+# ------------------------------------------------------------
+# There are just annoying aliases for OSX.
+# ------------------------------------------------------------ #
+
+
+
+# We must first check that we are in OSX
+if [[ $OSTYPE == *"darwin"* ]]; then
+    # We are in OSX, do things here.
+
+    # For homebrew, export a github API token to prevent rate-limiting
+    # on searches. See https://github.com/settings/applications
+    export HOMEBREW_GITHUB_API_TOKEN=5c47e813164ff86546241a298c9eae92881defbb
+
+    # Use GNU find instead of apple find
+    alias find=gfind
+
+    # LaTeX binaries (pdflatex, etc...) for compiling latex documents.
+    export PATH=$PATH:/usr/local/texlive/2012/bin/x86_64-darwin/
+
+fi

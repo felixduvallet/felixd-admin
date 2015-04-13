@@ -1,0 +1,34 @@
+# .bashrc.felixd -*- shell-script -*-
+
+# Felix Duvallet
+# felixd at cmu dot edu
+
+# Source this file from .bashrc:
+# usage:    ". $HOME/.bashrc.felixd" (the first . is important)
+
+# ------------------------------------------------------------ #
+# Load a directory's worth of bashrc.
+#
+# Taken from bash_completion (Ian McDonald)
+BASHRC_DIR=~/.bashrc.d
+if [ -d $BASHRC_DIR -a -r $BASHRC_DIR -a -x $BASHRC_DIR ]; then
+    for i in $BASHRC_DIR/bashrc*; do
+	[[ ${i##*/} == bashrc* ]] &&
+	[[ ${i##*/} != *~ ]] &&
+	[[ ${i##*/} != \#*\# ]] &&
+	[[ ${i##*/} != *.dpkg* ]] &&
+	[[ ${i##*/} != *.rpm* ]] &&
+	[ \( -f $i -o -h $i \) -a -r $i ] &&
+	. $i $BASHRC_DIR
+        # (pass in bashrc_dir) as argument
+    done
+fi
+unset i
+
+# ------------------------------------------------------------ #
+# add an extra blank line for kicks
+# need to have the if/then because scp will fail if something gets
+# printed to stdout
+if [ "$PS1" ]; then
+    echo " "
+fi

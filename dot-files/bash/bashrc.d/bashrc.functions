@@ -1,0 +1,44 @@
+# -*- shell-script -*-
+# ------------------------------------------------------------ #
+# 
+# This file is located in the .bashrc.d directory.  It will be
+# run when .bashrc is loaded.
+# 
+# ------------------------------------------------------------
+# This file defines different useful functions.
+# ------------------------------------------------------------ #
+
+### SSH completion -- completes hosts using known_hosts file
+# From http://gozer.ectoplasm.org/blog/archive/2005/02/sweet_bash_ssh.html
+# This doesn't actually work, known_hosts are just a bunch of hashes.
+
+# export SSH_COMPLETE=( $(cat ~/.ssh/known_hosts | \
+#     cut -f 1 -d ' ' | \
+#     sed -e s/,.*//g | \
+#     uniq ) )
+# complete -o default -W "${SSH_COMPLETE[*]}" ssh
+
+
+###   Handy Extract Program
+# From http://www.shell-fu.org/lister.php?id=375
+extract () {
+    if [ -f "$1" ] ; then
+        case "$1" in
+            *.tar.bz2)   tar xvjf "$1"        ;;
+            *.tar.gz)    tar xvzf "$1"     ;;
+            *.bz2)       bunzip2 "$1"       ;;
+            *.rar)       unrar x "$1"     ;;
+            *.gz)        gunzip "$1"     ;;
+            *.tar)       tar xvf "$1"        ;;
+            *.tbz2)      tar xvjf "$1"      ;;
+            *.tgz)       tar xvzf "$1"       ;;
+            *.zip)       unzip "$1"     ;;
+            *.Z)         uncompress "$1"  ;;
+            *.7z)        7z x "$1"    ;;
+            *)           echo "'$1' cannot be extracted via >extract<" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+
