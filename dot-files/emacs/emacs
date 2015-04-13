@@ -1,0 +1,133 @@
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(c-basic-offset 2)
+ '(c-default-style (quote ((c-mode . "bsd") (c++-mode . "bsd") (java-mode . "java") (awk-mode . "awk") (other . "gnu"))))
+ '(column-number-mode t)
+ '(compilation-scroll-output 'first-error)
+ '(compilation-skip-threshold 2)  ;; skip warnings, not errors.
+ '(confirm-kill-emacs (quote y-or-n-p))
+ '(fill-column 80)
+ '(indent-tabs-mode nil)
+ '(inhibit-startup-screen t)
+ '(iswitchb-mode t)
+ '(python-indent 4)
+ '(setq-default tab-width t)
+ '(show-paren-mode t)
+ '(transient-mark-mode t)
+ '(vc-follow-symlinks nil)
+ '(uniquify-buffer-name-style (quote forward) nil (uniquify))
+ '(x-select-enable-clipboard t))
+
+;; Unbind `C-x f', normally used to set fill-column width (but easily confused
+;; by C-x C-f.
+(global-unset-key "\C-xf")
+
+;; Bind meta-l to go to a particular line number
+(define-key esc-map "l" 'goto-line)
+
+;; Automatically revert buffers when they change (e.g., from git branches).
+(global-auto-revert-mode t)
+
+;; Shows useless whitespace, and deletes it before saving.
+(setq-default show-trailing-whitespace t)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; Hungry delete (from cc-mode) deletes all whitespace near current cursor. Bind
+;; Control-c + d to delete whitespace characters *forward* and Control-backspace
+;; to delete whitespace characters *backwards*.
+(load "cc-mode")
+(global-set-key "\C-cd" 'c-hungry-delete-forward)
+(global-set-key (kbd "C-<backspace>") 'c-hungry-delete-backwards)
+
+(global-set-key "\C-xc"  'compile)   ; bind control-x + c to compile
+(global-set-key [f11] 'compile)
+(global-set-key [f12] 'recompile)
+
+(global-set-key "\C-cu"  'sort-lines)   ; bind to control-c + u (sort highlighted lines)
+
+;; rotate files (open .cc/.h alternatively) w/ control-c + h
+(global-set-key "\C-ch" 'ff-find-other-file)
+
+;; Subword mode allows CamelCaseAware editing, in all programming modes.
+(add-hook 'prog-mode-hook 'subword-mode)
+(add-hook 'c-mode-common-hook
+	  (lambda () (subword-mode 1)))
+
+;; auto-complete
+(add-to-list 'load-path "~/.emacs.d/")
+(require 'auto-complete)
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
+(ac-config-default)
+
+;; Autocomplete customizations: make auto-complete wait for at least 4
+;; characters to prevent completion of small words, and wait at least a half
+;; second before showing the menu.
+(setq ac-auto-start 4)
+(setq ac-auto-show-menu 0.5)
+
+;; Emacs c-style guide
+(require 'google-c-style)
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+
+;; Highlight *all* mis-spelled words in a buffer, not just from this session.
+(add-hook 'flyspell-mode-hook 'flyspell-buffer)
+
+
+;; Solarized color theme: https://github.com/sellout/emacs-color-theme-solarized
+(require 'color-theme-solarized)
+(eval-after-load "color-theme"
+  '(progn
+     (color-theme-initialize)
+     (color-theme-solarized-light)))
+;; (load-theme 'solarized-light t)
+
+;; Disable theme in terminal mode
+(defun on-frame-open (frame)
+  (if (not (display-graphic-p frame))
+    (set-face-background 'default "unspecified-bg" frame)))
+(on-frame-open (selected-frame))
+(add-hook 'after-make-frame-functions 'on-frame-open)
+(defun on-after-init ()
+  (unless (display-graphic-p (selected-frame))
+    (set-face-background 'default "unspecified-bg" (selected-frame))))
+(add-hook 'window-setup-hook 'on-after-init)
+
+;; Auto-fill on by default (Emacs FAQ)
+;;(setq-default auto-fill-function 'do-auto-fill)
+
+;;; python mode
+(setq python-check-command "pyflakes")
+
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
+;;; ............................................................
+;; Don't backup (foo~) commit files.
+;; From http://bazaar-vcs.org/EmacsTips
+(defun starts-with-p (string1 string2)
+ (string= (substring string1 0 (min (length string1) (length
+string2))) string2))
+
+(defun dont-backup-commit-files-p (filename)
+ (let ((filename-part (file-name-nondirectory filename)))
+   (if (or (starts-with-p filename-part "svn-commit")
+           (starts-with-p filename-part "bzr_log"))
+       nil
+     (normal-backup-enable-predicate filename))))
+
+(setq backup-enable-predicate 'dont-backup-commit-files-p)
+;;; ............................................................
+
+;;; Unfill a paragraph: join all the lines into a single line. Useful for
+;;; editing LaTeX documents.
+;;; http://www.emacswiki.org/emacs/UnfillParagraph
+;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph
+    (defun unfill-paragraph ()
+      "Takes a multi-line paragraph and makes it into a single line of text."
+      (interactive)
+      (let ((fill-column (point-max)))
+        (fill-paragraph nil)))
+(global-set-key "\C-cq"  'unfill-paragraph)   ; bind to control-c + q

@@ -1,0 +1,9 @@
+Create symlinks:
+
+ emacs -> ~/.emacs
+ google-c-style.el ->~/.emacs.d/google-c-style.el
+ colorized-theme-solarized.el ->~/.emacs.d/colorized-theme-solarized.el
+
+
+NOTE: solarized theme requires the 'color-theme' package. This can be installed using:
+sudo aptitude install emacs-goodies-el
