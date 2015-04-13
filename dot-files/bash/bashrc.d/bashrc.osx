@@ -8,8 +8,6 @@
 # There are just annoying aliases for OSX.
 # ------------------------------------------------------------ #
 
-
-
 # We must first check that we are in OSX
 if [[ $OSTYPE == *"darwin"* ]]; then
     # We are in OSX, do things here.
@@ -23,5 +21,4 @@ if [[ $OSTYPE == *"darwin"* ]]; then
 
     # LaTeX binaries (pdflatex, etc...) for compiling latex documents.
     export PATH=$PATH:/usr/local/texlive/2012/bin/x86_64-darwin/
-
 fi
