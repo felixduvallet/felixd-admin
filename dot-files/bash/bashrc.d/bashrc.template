@@ -11,5 +11,5 @@
 
 # In OSX, also set the DYLD library path.
 if [[ $OSTYPE == *"darwin"* ]]; then
-    #export DYLD_LIBRARY_PATH=$STUFF
+    export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:""
 fi
