@@ -1,0 +1,28 @@
+[user]
+	name = Felix Duvallet
+	email = felix.duvallet@epfl.ch
+[alias]
+        a = add .
+	b = branch
+        c = commit
+	ci = commit
+        ic = commit
+        dif = diff
+	st = status
+	co = checkout
+	l = log --stat --abbrev-commit --decorate
+	lg = log --abbrev-commit --decorate --graph
+        ls = ls-files
+        wdiff = diff --color-words
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	ui = auto
+[core]
+	pager = less -r
+[credential]
+	helper = cache --timeout=86400
+[merge]
+	conflictstyle = diff3

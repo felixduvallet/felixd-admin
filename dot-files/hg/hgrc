@@ -1,0 +1,29 @@
+[ui]
+username = $USER on $HOSTNAME <felix.duvallet@epfl.ch>
+verbose = True
+merge = diff3
+ssh = ssh -C
+
+[pager]
+pager = LESS='FSRX' less
+ignore = version, help, update, serve, record
+
+[extensions]
+fetch =
+convert =
+hgext.hgk =
+record =
+pager =
+graphlog =
+color =
+purge =
+hgext.extdiff =
+
+[extdiff]
+# if cwdiff is in your path, otherwise set to wherever you've installed cwdiff
+cmd.wdiff = wdiff
+cmd.cwdiff = cwdiff
+opts.cwdiff = --diff --ab
+
+[alias]
+show = log -pr
