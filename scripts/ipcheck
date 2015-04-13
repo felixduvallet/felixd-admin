@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# External IP address check
+# Prints your current IP address to stdout.
+# 
+# Felix Duvallet
+# felixd at gmail dot com
+# March 2013
+
+wget -q -O - checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'

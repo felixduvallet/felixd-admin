@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# Alias for the appropriate status command in either git or mercurial.
+
+# Git
+if git remote > /dev/null 2>&1
+then
+    git status
+fi
+
+# Mercurial
+if hg root > /dev/null 2>&1
+then
+    hg status
+fi

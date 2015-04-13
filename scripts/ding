@@ -1,0 +1,10 @@
+#! /bin/sh
+#
+# Script to play a ding sound through your speakers.  Vastly superior to beep
+# command.  Specify ding file to play in DING_FILE. Requires pulseaudio
+# (paplay).
+
+
+
+DING_FILE=/usr/share/sounds/freedesktop/stereo/complete.oga
+paplay $DING_FILE &
