@@ -1,0 +1,26 @@
+# -*- shell-script -*-
+# ------------------------------------------------------------ #
+#
+# This file is located in the .bashrc.d directory.  It will be
+# run when .bashrc is loaded.
+#
+# ------------------------------------------------------------
+# ROS bashrc: Takes care of ROS stuff
+# ------------------------------------------------------------ #
+
+ROS_ROOT=/opt/ros/indigo/
+ROS_SETUP=$ROS_ROOT/setup.bash
+
+if [ -f $ROS_SETUP ]
+then
+    source $ROS_SETUP
+fi
+
+# export ROS_PACKAGE_PATH=~/proj/ros/:$ROS_PACKAGE_PATH
+
+# Allow rosmake to run in parallel
+export ROS_PARALLEL_JOBS='-j4 -l4'
+
+if [ "$PS1" ]; then
+    echo "ROS in [$ROS_PACKAGE_PATH].";
+fi
