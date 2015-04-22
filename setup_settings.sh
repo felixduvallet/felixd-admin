@@ -47,7 +47,7 @@ else
 fi
 
 ########################################
-# Emacs
+# Emacs: .emacs file and .emacs.d directory
 EMACS_SRC=$ADMIN_DIR/dot-files/emacs/emacs
 EMACS_DEST=~/.emacs
 if [ ! -f $EMACS_DEST ]
@@ -57,6 +57,17 @@ then
 else
     echo "$EMACS_DEST already exists"
 fi
+
+EMACS_SRC=$ADMIN_DIR/dot-files/emacs/emacs.d
+EMACS_DEST=~/.emacs.d
+if [ ! -f $EMACS_DEST ]
+then
+    ln -s $EMACS_SRC $EMACS_DEST
+    echo "Created $EMACS_DEST -> $EMACS_SRC"
+else
+    echo "$EMACS_DEST already exists"
+fi
+
 
 ########################################
 # Mercurial, git
