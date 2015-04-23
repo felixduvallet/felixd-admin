@@ -21,6 +21,24 @@ fi
 # Allow rosmake to run in parallel
 export ROS_PARALLEL_JOBS='-j4 -l4'
 
+# Simple function to source 'devel/setup.bash' file, relative to the current
+# directory. This does not (yet) do any fancy searching.
+rospaths () {
+    DEVEL_SETUP=devel/setup.bash
+    if [ -f $DEVEL_SETUP ]
+    then
+        echo "Sourcing $DEVEL_SETUP"
+        source $DEVEL_SETUP
+        return 1
+    else
+        echo "$DEVEL_SETUP does not exist"
+        return 0
+    fi
+}
+
+# Localization settings; required for tab-completion.
+export LC_ALL="C"
+
 if [ "$PS1" ]; then
     echo "ROS in [$ROS_PACKAGE_PATH].";
 fi
