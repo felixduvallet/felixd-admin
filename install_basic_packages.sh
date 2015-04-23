@@ -7,7 +7,7 @@ echo "Installing a bunch of packages, this will require sudo access"
 # Things everyone needs
 sudo aptitude -v install \
     ack-grep \
-    build-essential \
+    build-essential automake \
     emacs emacs-goodies-el auto-complete-el \
     gnome-do gnome-do-plugins \
     gsl-bin \
