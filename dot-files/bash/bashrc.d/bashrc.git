@@ -10,10 +10,6 @@ GIT_PROMPT=$BASHRC_DIR/git/git-prompt.sh
 # Only do this if the file exists, and it's an interactive prompt.
 if [ -f $GIT_PROMPT ] && [ "$PS1" ]
 then
-    if [ "$PS1" ]; then
-        # Debugging for now.
-        echo "git prompt $GIT_PROMPT"
-    fi
 
     source $GIT_PROMPT
 
