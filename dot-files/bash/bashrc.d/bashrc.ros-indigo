@@ -21,14 +21,18 @@ fi
 # Allow rosmake to run in parallel
 export ROS_PARALLEL_JOBS='-j4 -l4'
 
+# Localization settings; required for tab-completion.
+export LC_ALL="C"
+
 # Simple function to source 'devel/setup.bash' file, relative to the current
 # directory. This does not (yet) do any fancy searching.
 rospaths () {
     DEVEL_SETUP=devel/setup.bash
     if [ -f $DEVEL_SETUP ]
     then
-        echo "Sourcing $DEVEL_SETUP"
-        source $DEVEL_SETUP
+        path=$(pwd)
+        echo "Sourcing $path/$DEVEL_SETUP"
+        source $path/$DEVEL_SETUP
         return 1
     else
         echo "$DEVEL_SETUP does not exist"
@@ -36,9 +40,31 @@ rospaths () {
     fi
 }
 
-# Localization settings; required for tab-completion.
-export LC_ALL="C"
+# Find the root of the current ros workspace: this is defined as the directory
+# that contains the CATKIN_WS_FILE.
+CATKIN_WS_FILE=".catkin_workspace"
+rosroot () {
+  path=$(pwd)
+  #while [[ "$path" != "" && ! -e "$path/.catkin_workspace" ]]; do
+  while [[ "$path" != "" && ! -e "$path/$CATKIN_WS_FILE" ]]; do
+    path=${path%/*}
+  done
+  echo "$path"
+}
 
+# Go to the root directory of the current ROS workspace. If not in a ROS
+# workspace, does nothing.
+cdrosroot () {
+    tmp_root=`rosroot`
+    if [ ! -z $tmp_root ]; then
+        echo "ROS workspace root: $tmp_root"
+        cd $tmp_root
+    else
+        echo "Not in ROS workspace."
+    fi
+}
+
+# Print ros package path
 if [ "$PS1" ]; then
-    echo "ROS in [$ROS_PACKAGE_PATH].";
+    echo "ROS package path: [$ROS_PACKAGE_PATH].";
 fi
