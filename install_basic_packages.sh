@@ -18,6 +18,7 @@ sudo aptitude -v install \
     openssh-server \
     pdfshuffler \
     python-nltk python-scipy python-setuptools python-pip python-yaml pyflakes \
+    python-tk \
     python-nose python-matplotlib python-numpy python-enchant python-memcache python-mpmath \
     qiv \
     rake \
