@@ -60,7 +60,7 @@ fi
 
 EMACS_SRC=$ADMIN_DIR/dot-files/emacs/emacs.d
 EMACS_DEST=~/.emacs.d
-if [ ! -f $EMACS_DEST ]
+if [ ! -d $EMACS_DEST ]
 then
     ln -s $EMACS_SRC $EMACS_DEST
     echo "Created $EMACS_DEST -> $EMACS_SRC"
@@ -101,6 +101,18 @@ then
     echo "Created $SSH_CONFIG_DEST -> $SSH_CONFIG_SRC"
 else
     echo "$SSH_CONFIG_DEST already exists"
+fi
+
+########################################
+# LESSFILTER: Additional settings for lesspipe
+LESSFILTER_CONFIG_SRC=$ADMIN_DIR/dot-files/lessfilter
+LESSFILTER_CONFIG_DEST=~/.lessfilter
+if [ ! -f $LESSFILTER_CONFIG_DEST ]
+then
+    ln -s $LESSFILTER_CONFIG_SRC $LESSFILTER_CONFIG_DEST
+    echo "Created $LESSFILTER_CONFIG_DEST -> $LESSFILTER_CONFIG_SRC"
+else
+    echo "$LESSFILTER_CONFIG_DEST already exists"
 fi
 
 ########################################
