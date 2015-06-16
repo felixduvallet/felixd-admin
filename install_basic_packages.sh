@@ -11,16 +11,15 @@ sudo aptitude -v install \
     emacs emacs-goodies-el auto-complete-el \
     gnome-do gnome-do-plugins \
     gsl-bin \
-    ipython \
     kdiff3-qt \
     mercurial subversion git \
     ntpdate \
     openssh-server \
     pdfshuffler \
-    python-nltk python-scipy python-setuptools python-pip python-yaml pyflakes \
-    python-tk \
-    python-nose python-matplotlib python-numpy python-enchant python-memcache python-mpmath \
-    qiv \
+    python ipython pep8 \
+    python-nltk python-scipy python-setuptools python-pip python-yaml pyflakes python-tk \
+    python-nose python-matplotlib python-numpy python-enchant python-mode python-mpmath \
+    qiv imagemagick \
     rake \
     libgsl0-dev \
     libpython-all-dev \
