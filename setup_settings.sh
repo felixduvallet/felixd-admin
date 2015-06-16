@@ -149,3 +149,15 @@ then
 else
     echo "$CRON_DEST already exists"
 fi
+
+########################################
+# ipython
+IPYTHON_SRC=$ADMIN_DIR/dot-files/ipython/ipython_config.py
+IPYTHON_DEST=~/.config/ipython/profile_default/
+if [ ! -f $IPYTHON_DEST ]
+then
+    ln -s $IPYTHON_SRC $IPYTHON_DEST
+    echo "Created $IPYTHON_DEST -> $IPYTHON_SRC"
+else
+    echo "$IPYTHON_DEST already exists"
+fi
