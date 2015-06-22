@@ -51,7 +51,6 @@ cdrosroot () {
 # Simple function to source 'devel/setup.bash' file, relative to the current
 # directory. This does not (yet) do any fancy searching.
 rospaths () {
-
     # ros root directory & setup.bash relative location
     ROS_ROOT=`rosroot`
     DEVEL_SETUP=devel/setup.bash
@@ -63,10 +62,22 @@ rospaths () {
         path=$(pwd)
         echo "Sourcing $SETUP_FPATH"
         source $SETUP_FPATH
+        echo "ROS package path: [$ROS_PACKAGE_PATH].";
         return 1
     else
         echo "$SETUP_FPATH does not exist"
         return 0
+    fi
+}
+
+# Automatically call catkin_make with the ros root directory.
+rosmagicmake() {
+    tmp_root=`rosroot`
+    if [ ! -z $tmp_root ]; then
+        echo "ROS workspace root: $tmp_root"
+        catkin_make -C $tmp_root
+    else
+        echo "Not in ROS workspace."
     fi
 }
 
