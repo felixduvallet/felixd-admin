@@ -1,3 +1,4 @@
+;; -*- mode:emacs-lisp -*-
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -131,3 +132,9 @@ string2))) string2))
       (let ((fill-column (point-max)))
         (fill-paragraph nil)))
 (global-set-key "\C-cq"  'unfill-paragraph)   ; bind to control-c + q
+
+
+
+;;; ............................................................
+;;; ROS customizations
+(load "~/.emacs.d/ros-emacs-felixd.el")
