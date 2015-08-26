@@ -81,6 +81,16 @@ rosmagicmake() {
     fi
 }
 
+# Deprecate various old ROS commands to make sure you don't use them on
+# accident.
+ros_deprecated() {
+    echo "This ROS command has been deprecated."
+}
+alias rosmake=ros_deprecated
+alias roscreate-pkg=ros_deprecated
+alias rosinstall=ros_deprecated
+alias rosws=ros_deprecated
+
 # Print ros package path
 if [ "$PS1" ]; then
     echo "ROS package path: [$ROS_PACKAGE_PATH].";
