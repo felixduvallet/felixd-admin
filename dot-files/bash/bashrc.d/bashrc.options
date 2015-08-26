@@ -37,3 +37,8 @@ export HISTSIZE=1000000
 # Export the pythonpath to be (at least) the empty string, which adds
 # the current directory to PYTHONPATH (yes, this is weird).
 export PYTHONPATH=$PYTHONPATH:""
+
+
+# Enable ccache by prepending its directory to the path: ccache will get called
+# instead of the compiler.
+export PATH=/usr/lib/ccache:$PATH
