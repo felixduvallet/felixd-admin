@@ -80,3 +80,5 @@ alias xclip='xclip -selection c'
 # QIV - quick image viewer (for current directory)
 alias q.='qiv .'
 
+# Get fullpath to a file
+alias fullpath='readlink -f'
