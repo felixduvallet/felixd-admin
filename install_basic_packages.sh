@@ -16,8 +16,8 @@ sudo aptitude -v install \
     ntpdate \
     openssh-server \
     pdfshuffler \
-    python ipython pep8 \
-    python-nltk python-scipy python-setuptools python-pip python-yaml pyflakes python-tk \
+    python ipython pep8 pylint pyflakes \
+    python-nltk python-scipy python-setuptools python-pip python-yaml python-tk \
     python-nose python-matplotlib python-numpy python-enchant python-mode python-mpmath \
     qiv imagemagick \
     rake \
