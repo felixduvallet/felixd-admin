@@ -42,6 +42,10 @@ extract () {
     fi
 }
 
+# Delete all *~ temporary files.
+rmtmp() {
+    find . -type f -name "*~" -exec rm -v -- {} +
+}
 
 # move 'upto' any parent directory matching the provided string. Works with tab completion.
 # Shamelessly nabbed from:
