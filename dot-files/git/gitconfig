@@ -10,8 +10,9 @@
         dif = diff
 	st = status
 	co = checkout
-	l = log --stat --abbrev-commit --decorate
+	l = log --abbrev-commit --decorate --stat
 	lg = log --abbrev-commit --decorate --graph
+        lol = log --abbrev-commit --decorate --graph --pretty=oneline
         ls = ls-files
         wdiff = diff --color-words
 [color]
