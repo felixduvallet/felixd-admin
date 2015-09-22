@@ -1,0 +1,14 @@
+# -*- shell-script -*-
+# ------------------------------------------------------------ #
+#
+# This file is located in the .bashrc.d directory.  It will be
+# run when .bashrc is loaded.
+#
+# ------------------------------------------------------------
+# This file is just a template.  It does nothing.
+# ------------------------------------------------------------ #
+
+eval "$(register-python-argcomplete armarx)"
+if [ "$PS1" ]; then
+    echo "Enabled armarx auto-complete"
+fi
