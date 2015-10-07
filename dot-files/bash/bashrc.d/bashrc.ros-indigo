@@ -65,7 +65,7 @@ rospaths () {
         echo "ROS package path: [$ROS_PACKAGE_PATH].";
         return 1
     else
-        echo "$SETUP_FPATH does not exist"
+        echo "$SETUP_FPATH does not exist, are you in a workspace?"
         return 0
     fi
 }
