@@ -1,0 +1,12 @@
+Alt-back_tick is an annoying shortcut with no easy way to disable it. It
+conflicts with PyCharm's shortcuts unless disabled.
+
+After some trolling through launchpad bug reports and stackoverflow questions,
+here is how to disable it:
+ - install dconf-editor
+ - look for keys bound to <Alt>Above_Tab:
+      $ gsettings list-recursively  | grep Above_Tab
+   In my case, this was:
+      org.cinnamon.desktop.keybindings.wm switch-group
+      org.gnome.desktop.wm.keybindings switch-group
+ - Change those settings (in dconf-editor) to ['disabled']

@@ -1,0 +1,24 @@
+HOWTO: (almost)automatically synchronize a directory of wallpapers with your
+android phone
+
+# Felix Duvallet
+# felixd at cmu edu
+# Created: April 2012.
+# Updated: April 2012.
+
+Dropbox: Make a directory with all backgrounds.  They can be arbitrary sizes,
+though smaller is better for storage space.
+
+Phone: Download the dropbox app, and navigate to the backgrounds directory.  For
+each file, mark is as a favorite (star it).  This will make a local cached copy
+of the backgrounds on the phone.  Currently, dropbox does not have a way to
+synchronize a complete directory.  This is the only step that is not completely
+automatic, when you add new pictures you will have to "star" the new images too.
+
+Phone: Download Wallswitch:
+https://play.google.com/store/apps/details?id=com.kfbtech.wallswitch&hl=en
+
+Configure Wallswitch: Set the Wallpapers folder to the dropbox folder name.
+Change other settings as desired.  You can add a Widget to a desktop that will
+change wallpapers when clicked.
+

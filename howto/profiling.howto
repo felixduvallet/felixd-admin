@@ -1,0 +1,12 @@
+C/C++:
+
+valgrind --tool=callgrind ./program
+
+kcachegrind callgrind.out.NNNN
+
+
+
+python:
+
+python -m cProfile -o out.prof program.py
+runsnake out.prof

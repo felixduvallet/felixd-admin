@@ -1,0 +1,1 @@
+rsync -avzl -e ssh --partial --progress <remote_path> <local_path>

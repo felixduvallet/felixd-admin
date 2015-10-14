@@ -1,0 +1,6 @@
+To enable ccache by default (system-wide), just prepend /usr/lib/ccache to the
+PATH. This will make sure ccache gets called instead of cc/gcc/g++/etc...
+
+# Enable ccache by prepending its directory to the path: ccache will get called
+# instead of the compiler.
+export PATH=/usr/lib/ccache:$PATH

@@ -1,0 +1,7 @@
+Creating an archive of a remote directory over SSH:
+
+
+ssh <host> "tar czf - /remote/directory/" > output.tgz
+
+Example:
+ssh fduvalle@linux.andrew.cmu.edu "tar czpf - /afs/andrew.cmu.edu/usr24/fduvalle/" > afs-andrew.tgz

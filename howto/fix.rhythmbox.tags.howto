@@ -1,0 +1,25 @@
+HOWTO: Fix rhythmbox non-persistent changes.
+# Felix Duvallet
+# felixd at cmu edu
+# Created: April 2011.
+# Updated: April 2011.
+
+Problem: After editing tags in rhytmbox, the changes only persist for
+the current rhytmbox session.
+
+After some digging around, I found a workaround:
+https://bugs.launchpad.net/rhythmbox/+bug/127510
+
+Presumably, there is an APE tag that rhytmbox is not editing.
+
+In exfalso perform the following:
+ - enable APE->ID3 pluging
+ - select the files in question
+ - convert APE tag to ID3 tag.  This removes the APE tag.
+
+In some cases (multi-disc albums), the ordering will then be off.  To
+fix this, renumber all the tracks so that they are numbered
+sequentially across all dics (not just within a single disc).  
+
+This can also be done in exfalso by manually setting the "start from"
+and "total tracks" manually.

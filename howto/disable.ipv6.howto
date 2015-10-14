@@ -1,0 +1,6 @@
+Disabling IPv6 on MAC OSX 10.9:
+networksetup -setv6off Wi-Fi
+
+To enable again:
+networksetup -setv6automatic Wi-Fi
+

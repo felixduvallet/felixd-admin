@@ -1,0 +1,4 @@
+If ipython crashes at startup, it just needs to be re-installed:
+sudo easy_install -U ipython
+
+(OSX)

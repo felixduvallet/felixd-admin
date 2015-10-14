@@ -1,0 +1,12 @@
+Redirecting the standard error (stderr) and stdout to file
+http://www.cyberciti.biz/faq/redirecting-stderr-to-stdout/
+
+
+$ command-name &>file
+$ command > file-name 2>&1
+
+
+To append to a file instead:
+
+$ cmd >>outfile 2>&1
+$ cmd &>>outfile

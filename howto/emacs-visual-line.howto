@@ -1,0 +1,9 @@
+HOWTO: Emacs header for visual-line mode.
+# Felix Duvallet
+# felixd at cmu edu
+# Created: December 2010.
+# Updated: December 2010.
+
+This will add visual-line mode (wrap) to any file.
+
+-*- mode:visual-line -*-

@@ -1,0 +1,21 @@
+
+
+For class variables that get assigned:
+
+def foo():
+    #: :type: ObservablePlanarGraph
+    self._graph = graph
+
+For input variables (in a docstring):
+def foo(self, feature_finder):
+    """
+    :type feature_finder FeatureFinder
+    """
+
+For return types (also note, tuples and lists):
+
+def foo(self):
+    """
+    :rtype (list[PolicyData], list[PolicyData])
+    """
+    return res
