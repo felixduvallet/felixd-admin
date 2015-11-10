@@ -74,8 +74,8 @@ rospaths () {
 rosmagicmake() {
     tmp_root=`rosroot`
     if [ ! -z $tmp_root ]; then
-        echo "ROS workspace root: $tmp_root"
-        catkin_make -C $tmp_root
+        echo "ROS workspace root: $tmp_root. arguments [$@]"
+        catkin_make -C $tmp_root "$@"
     else
         echo "Not in ROS workspace."
     fi
