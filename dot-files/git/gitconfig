@@ -28,5 +28,6 @@
 	helper = cache --timeout=86400
 [merge]
 	conflictstyle = diff3
+	ff = false
 [push]
 	default = simple
