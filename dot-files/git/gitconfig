@@ -13,6 +13,7 @@
 	l = log --abbrev-commit --decorate --stat
 	lg = log --abbrev-commit --decorate --graph
         lol = log --abbrev-commit --decorate --graph --pretty=oneline
+        lola = log --abbrev-commit --decorate --graph --pretty=oneline --all
         ls = ls-files
         wdiff = diff --color-words
 [color]
