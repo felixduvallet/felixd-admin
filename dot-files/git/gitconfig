@@ -16,6 +16,9 @@
         lola = log --abbrev-commit --decorate --graph --pretty=oneline --all
         ls = ls-files
         wdiff = diff --color-words
+        # Incoming and outgoing changes
+        incoming = !git fetch && git log ..origin/master
+        outgoing = !git fetch && git log origin/master..
 [color]
 	branch = auto
 	diff = auto
