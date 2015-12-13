@@ -1,0 +1,16 @@
+By default, EPFL blocks all external SSH access (for example, to your office
+machine). To access the machine, you must go through a gateway service called
+tremplin (trampoline).
+
+First, you need to create an account before you can use this server (one-time
+thing): https://tremplin.epfl.ch/ssh.cgi. You need your sciper number for this,
+the password is your gaspar password.
+
+Each time you want to access an internal machine as from the outside world:
+
+    ssh -f -N -L2222:lasapc20.epfl.ch:22 256891@tremplin.epfl.ch
+    ssh -p 2222 felixd@localhost
+
+Replace the epfl internal hostname with your machine's, the sciper number with
+yours, and the username with the username on your local machine (not your EPFL
+login.
