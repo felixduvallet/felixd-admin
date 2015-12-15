@@ -62,7 +62,7 @@ echo `date` >> $LOG_FILE
 
 # The actual business: rclone. Timeout in case we don't have internet,
 # catch all errors. Delete any files that are missing on the source.
-rclone sync -v -n --timeout $TIMEOUT_SEC \
+rclone sync --timeout $TIMEOUT_SEC \
     --exclude-from=$EXCLUDE_FROM_FILE --delete-excluded \
     $SRC_DIR $DEST_DIR --log-file=$LOG_FILE > /dev/null 2>&1
 
