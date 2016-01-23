@@ -1,0 +1,8 @@
+# List of files to exclude from rclone's mirror backup.
+
+# cmake & ROS build directories.
+**/build/**
+**/devel/**
+armarx/**
+cmu/**
+semantic-planning/**
