@@ -14,7 +14,7 @@ if [[ $OSTYPE == *"darwin"* ]]; then
 
     # For homebrew, export a github API token to prevent rate-limiting
     # on searches. See https://github.com/settings/applications
-    export HOMEBREW_GITHUB_API_TOKEN=5c47e813164ff86546241a298c9eae92881defbb
+    #export HOMEBREW_GITHUB_API_TOKEN=fill_me_in
 
     # Use GNU find instead of apple find
     alias find=gfind
