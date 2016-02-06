@@ -1,20 +1,11 @@
 {
-	// insert spaces when tab is pressed
-    "translate_tabs_to_spaces": true,
-
-    // remove trailing white space on save
-	"trim_trailing_white_space_on_save": true,
-
-    // Ensure the last line of the file ends in a newline character when saving
+	"color_scheme": "Packages/Color Scheme - Default/Solarized (Light).tmTheme",
 	"ensure_newline_at_eof_on_save": true,
-
-    // make shift+tab always unindent, instead of inserting tabs.
-    "shift_tab_unindent": true,
-
-    "color_scheme": "Packages/Color Scheme - Default/Solarized (Light).tmTheme",
-
 	"ignored_packages":
 	[
 		"Vintage"
-	]
+	],
+	"shift_tab_unindent": true,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
 }
