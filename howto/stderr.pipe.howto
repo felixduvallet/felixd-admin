@@ -1,7 +1,6 @@
 Redirecting the standard error (stderr) and stdout to file
 http://www.cyberciti.biz/faq/redirecting-stderr-to-stdout/
 
-
 $ command-name &>file
 $ command > file-name 2>&1
 
