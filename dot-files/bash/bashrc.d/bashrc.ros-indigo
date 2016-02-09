@@ -21,9 +21,6 @@ fi
 # Allow rosmake to run in parallel
 export ROS_PARALLEL_JOBS='-j4 -l4'
 
-# Localization settings; required for tab-completion.
-export LC_ALL="C"
-
 # Override OS setting for rosdep
 ROS_OS_OVERRIDE="ubuntu:14.04:trusty"
 
