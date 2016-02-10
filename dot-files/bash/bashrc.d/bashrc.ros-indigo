@@ -21,6 +21,9 @@ fi
 # Allow rosmake to run in parallel
 export ROS_PARALLEL_JOBS='-j4 -l4'
 
+# Override OS setting for rosdep
+ROS_OS_OVERRIDE="ubuntu:14.04:trusty"
+
 # Find the root of the current ros workspace: this is defined as the directory
 # that contains the CATKIN_WS_FILE.
 CATKIN_WS_FILE=".catkin_workspace"
