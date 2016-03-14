@@ -12,3 +12,4 @@ export GOPATH=$HOME/gopath
 export PATH=$GOPATH:$GOPATH/bin:/usr/local/go/bin:$PATH
 
 export PATH=$PATH:$HOME/scripts
+export GOPATH=$HOME/proj/go/
