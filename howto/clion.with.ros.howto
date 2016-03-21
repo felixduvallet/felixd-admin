@@ -1,0 +1,11 @@
+CLion is a great editor but has trouble working with ROS workspaces because
+CMakeLists.txt is not in the CLion project root.
+
+When creating a CLion project, make the project root the catkin workspace root.
+
+Then, tell CLion where to find the top-level CMakeLists.txt file:
+  - Open up <project>/.idea/misc.xml
+  - Change the CMakeWorkspace setting:
+      <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$/src" />
+
+Then restart CLion. You should see all the build targets in the Build dropdown menu.

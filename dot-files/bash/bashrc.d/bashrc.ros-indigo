@@ -21,8 +21,8 @@ fi
 # Allow rosmake to run in parallel
 export ROS_PARALLEL_JOBS='-j4 -l4'
 
-# Localization settings; required for tab-completion.
-export LC_ALL="C"
+# Override OS setting for rosdep
+export ROS_OS_OVERRIDE="ubuntu:14.04:trusty"
 
 # Find the root of the current ros workspace: this is defined as the directory
 # that contains the CATKIN_WS_FILE.
@@ -95,6 +95,12 @@ rosrmbuild() {
         rm -rf $tmp_root/build
         rm -rf $tmp_root/install
     fi
+}
+
+# Resolve any package dependencies from anywhere inside the workspace, using
+# rosdep.
+rosresolve() {
+    rosdep install --from-paths `rosroot`/src --ignore-src
 }
 
 # Deprecate various old ROS commands to make sure you don't use them on

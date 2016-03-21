@@ -6,3 +6,5 @@
 armarx/**
 cmu/**
 semantic-planning/**
+
+*.o

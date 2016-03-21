@@ -1,0 +1,8 @@
+
+Search for some contents ('foo') only inside files with a specific custom
+extension (.ice):
+
+    ack-grep --type-set ice:match:/.+\\.ice/ --ice 'foo'
+
+
+Search for whole words: `-w`.

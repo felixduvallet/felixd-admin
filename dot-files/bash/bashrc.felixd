@@ -32,3 +32,6 @@ unset i
 if [ "$PS1" ]; then
     echo " "
 fi
+
+# added by travis gem
+[ -f /home/felixd/.travis/travis.sh ] && source /home/felixd/.travis/travis.sh
