@@ -1,0 +1,5 @@
+OSX presentation video encoding:
+
+To get videos to work in presentations on OSX, use motion jpeg encoding for AVI files.
+
+ffmpeg -i input.mp4 -f avi -c:v mjpeg output.avi
