@@ -23,3 +23,23 @@ then
 	echo "ArmarX in [$ARMARX_ROOT]"
     fi
 fi
+
+armarx-start-scenario() {
+    SCENARIO_FILE='./startScenario.sh'
+    if [ -f $SETUP_FPATH ]
+    then
+        . $SCENARIO_FILE
+    else
+        echo "No such file: $SCENARIO_FILE"
+    fi
+}
+
+armarx-stop-scenario() {
+    SCENARIO_FILE='./stopScenario.sh'
+    if [ -f $SETUP_FPATH ]
+    then
+        . $SCENARIO_FILE && . $SCENARIO_FILE 9
+    else
+        echo "No such file: $SCENARIO_FILE"
+    fi
+}
