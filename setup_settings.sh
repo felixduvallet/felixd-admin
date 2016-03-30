@@ -161,3 +161,15 @@ then
 else
     echo "$IPYTHON_DEST already exists"
 fi
+
+########################################
+# xmodmap
+XMODMAP_SRC=$ADMIN_DIR/dot-files/xmodmap/xmodmaprc
+XMODMAP_DEST=~/.xmodmaprc
+if [ ! -f $XMODMAP_DEST ]
+then
+    ln -s $XMODMAP_SRC $XMODMAP_DEST
+    echo "Created $XMODMAP_DEST -> $XMODMAP_SRC"
+else
+    echo "$XMODMAP_DEST already exists"
+fi
