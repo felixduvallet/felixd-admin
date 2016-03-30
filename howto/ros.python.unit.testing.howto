@@ -1,4 +1,5 @@
-Unittesting in ROS python:
+ROS unittesting in python
+==========================
 
 # Imports
 
@@ -17,3 +18,19 @@ Note this will also run with nosetests, but you can only run it directly using r
 # Executable flag
 Flag must be *off* for test files (otherwise nosetests will ignore it).
 
+
+
+ROS unittesting in C++
+======================
+
+ - Create a test executable inside the CMakeLists:
+   	catkin_add_gtest(test_foo test/foo.cpp)
+ - Link it with catkin libraries (and any other project libraries)
+   	target_link_libraries(test_foo ${catkin_LIBRARIES})
+ - If necessary, you can define *both* an executable and a library for the same .cpp source file: 
+        add_executable(foo foo.cpp)
+	add_library(fooLib foo.cpp)
+   This prevents having to create a separate library *just* to test the contents of a class.
+
+NOTE: you cannot have NodeHandles/etc... inside the constructor (as this would require init_node to be called first).
+Instead, let the constructor be separate from any ROS initialization.
