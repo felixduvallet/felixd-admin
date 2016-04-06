@@ -24,7 +24,7 @@ then
     fi
 fi
 
-armarx-start-scenario() {
+axgo() {
     SCENARIO_FILE='./startScenario.sh'
     if [ -f $SETUP_FPATH ]
     then
@@ -34,7 +34,7 @@ armarx-start-scenario() {
     fi
 }
 
-armarx-stop-scenario() {
+axstop() {
     SCENARIO_FILE='./stopScenario.sh'
     if [ -f $SETUP_FPATH ]
     then
