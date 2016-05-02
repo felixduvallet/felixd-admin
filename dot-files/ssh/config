@@ -1,7 +1,3 @@
-Compression yes
-ForwardX11 yes
-ForwardX11Trusted yes
-
 # Main machine.
 Host pingora lasapc20 lasapc20.epfl.ch
      HostName lasapc20.epfl.ch
@@ -10,3 +6,8 @@ Host pingora lasapc20 lasapc20.epfl.ch
 # Do not forward x11 for github.
 Host *github.com
    ForwardX11 no
+
+# All other configurations.
+Compression yes
+ForwardX11 yes
+ForwardX11Trusted yes
