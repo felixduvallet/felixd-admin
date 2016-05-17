@@ -25,12 +25,15 @@ export ROS_PARALLEL_JOBS='-j4 -l4'
 export ROS_OS_OVERRIDE="ubuntu:14.04:trusty"
 
 # Find the root of the current ros workspace: this is defined as the directory
-# that contains the CATKIN_WS_FILE.
+# that contains the CATKIN_WS_FILE (.catkin_workspace, automatically generated
+# by 'catkin_make') or the CATKIN_TOOLS_DIR (.catkin_tools, directory created by
+# 'catkin init').
 CATKIN_WS_FILE=".catkin_workspace"
+CATKIN_TOOLS_DIR=".catkin_tools"
 rosroot () {
   path=$(pwd)
-  #while [[ "$path" != "" && ! -e "$path/.catkin_workspace" ]]; do
-  while [[ "$path" != "" && ! -e "$path/$CATKIN_WS_FILE" ]]; do
+  # Check for existence of catkin file *or* directory.
+  while [[ "$path" != "" && ! ( -e "$path/$CATKIN_WS_FILE" || -d "$path/$CATKIN_TOOLS_DIR" ) ]]; do
     path=${path%/*}
   done
   echo "$path"
@@ -43,8 +46,10 @@ cdrosroot () {
     if [ ! -z $tmp_root ]; then
         echo "ROS workspace root: $tmp_root"
         cd $tmp_root
+        return 0
     else
         echo "Not in ROS workspace."
+        return -1
     fi
 }
 
@@ -63,10 +68,10 @@ rospaths () {
         echo "Sourcing $SETUP_FPATH"
         source $SETUP_FPATH
         echo "ROS package path: [$ROS_PACKAGE_PATH].";
-        return 1
-    else
-        echo "$SETUP_FPATH does not exist, are you in a workspace?"
         return 0
+    else
+        echo "Not in ROS workspace."
+        return -1
     fi
 }
 
@@ -78,6 +83,7 @@ rosmagicmake() {
         catkin_make -C $tmp_root "$@"
     else
         echo "Not in ROS workspace."
+        return -1
     fi
 }
 
