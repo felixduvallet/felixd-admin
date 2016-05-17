@@ -9,21 +9,13 @@
 # http://h2t-projects.webarchiv.kit.edu/Projects/ArmarX/
 # ------------------------------------------------------------ #
 
-export ARMARX_ROOT=/home/felixd/proj/armarx/armarx-src/armarx
-
-export ARMARX_BIN=$ARMARX_ROOT/ArmarXCore/build/bin/
-export ARMARX_MEMORYX_BIN=$ARMARX_ROOT/MemoryX/build/bin/
-
-if [ -d $ARMARX_BIN ]
-then
-    export PATH=$PATH:$ARMARX_BIN:$ARMARX_MEMORYX_BIN
+# Enable armarx tab completion if it is installed (use `hash` to check).
+if hash armarx 2>/dev/null; then
     eval "$(register-python-argcomplete armarx)"
     eval "$(register-python-argcomplete armarx-dev)"
-    if [ "$PS1" ]; then
-	echo "ArmarX in [$ARMARX_ROOT]"
-    fi
 fi
 
+# Helper scripts to start & stop scenarios more quickly.
 axgo() {
     SCENARIO_FILE='./startScenario.sh'
     if [ -f $SETUP_FPATH ]
