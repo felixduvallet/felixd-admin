@@ -10,8 +10,7 @@ sudo aptitude -v install \
     build-essential automake ccache \
     emacs emacs-goodies-el auto-complete-el \
     gnome-do gnome-do-plugins \
-    gsl-bin \
-    kdiff3-qt \
+    libgsl0-dev gsl-bin \
     mercurial subversion git \
     ntpdate \
     openssh-server \
@@ -21,10 +20,9 @@ sudo aptitude -v install \
     python-nose python-matplotlib python-numpy python-enchant python-mode python-mpmath \
     qiv imagemagick \
     rake \
-    libgsl0-dev \
     libpython-all-dev \
-    swig \
     texlive-binaries texlive-latex-base texlive-latex-extra \
+    meld \
     tmux
 
 # NOTE: very slow
