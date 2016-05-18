@@ -1,0 +1,5 @@
+Use the Menu key (between right Ctrl/Alt) as an accent modifier:
+ [Menu] + ' then e -> é
+ [Menu] + ` then a -> à
+
+Keyboard Layout Options > Position of Compose Key > check 'Menu'.
