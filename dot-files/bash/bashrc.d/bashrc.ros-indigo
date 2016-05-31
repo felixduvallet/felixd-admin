@@ -75,12 +75,19 @@ rospaths () {
     fi
 }
 
-# Automatically call catkin_make with the ros root directory.
+# Automatically call catkin_make (or catkin build) inside the ros root
+# directory.
 rosmagicmake() {
     tmp_root=`rosroot`
     if [ ! -z $tmp_root ]; then
         echo "ROS workspace root: $tmp_root. arguments [$@]"
-        catkin_make -C $tmp_root "$@"
+        # Choose the build method: catkin_make or catkin build.
+        if [ -d $tmp_root/.catkin_tools ]
+        then
+            catkin build
+        else
+            catkin_make -C $tmp_root "$@"
+        fi
     else
         echo "Not in ROS workspace."
         return -1
