@@ -33,5 +33,5 @@ if [ "$PS1" ]; then
     echo " "
 fi
 
-# Travis: added by travis gem
+# Travis-CI: added by travis gem
 [ -f /home/felixd/.travis/travis.sh ] && source /home/felixd/.travis/travis.sh
