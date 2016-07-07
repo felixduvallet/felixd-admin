@@ -1,0 +1,15 @@
+# Video encoding in linux / OSX.
+
+## Nice looking videos that are compressed using h264 codecc:
+
+    ffmpeg -i input.mov -c:v h264 output.mp4
+
+Add `-an` to remove the audio.
+
+## OSX presentation video encoding:
+
+For videos to work in presentations on OSX, use motion jpeg encoding for AVI files.
+
+    ffmpeg -i input.mp4 -f avi -c:v mjpeg output.avi
+
+NOTE: In some versions of Ubuntu, use 'avconv' instead of 'ffmpeg'.
