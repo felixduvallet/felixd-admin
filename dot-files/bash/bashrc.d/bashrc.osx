@@ -1,9 +1,9 @@
 # -*- shell-script -*-
 # ------------------------------------------------------------ #
-# 
+#
 # This file is located in the .bashrc.d directory.  It will be
 # run when .bashrc is loaded.
-# 
+#
 # ------------------------------------------------------------
 # There are just annoying aliases for OSX.
 # ------------------------------------------------------------ #
@@ -21,4 +21,9 @@ if [[ $OSTYPE == *"darwin"* ]]; then
 
     # LaTeX binaries (pdflatex, etc...) for compiling latex documents.
     export PATH=$PATH:/usr/local/texlive/2012/bin/x86_64-darwin/
+
+    # Tab completion for bash.
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
 fi
