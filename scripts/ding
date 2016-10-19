@@ -14,8 +14,17 @@ fi
 # Threshold at 100.
 VOLUME=$(($VOLUME<100?$VOLUME:100))
 
-# paplay expects volume between 0 and 65536. This is our internal value.
-VOLUME_65536=$(( $VOLUME * 65536 / 100))
 
-DING_FILE=/usr/share/sounds/freedesktop/stereo/complete.oga
-paplay $DING_FILE --volume $VOLUME_65536 &
+# In Linux, use paply. Under OSX, use afplay.
+if [[ $OSTYPE == *"darwin"* ]]; then
+    # TODO: support volume. Note that afplay expects normal volumes in [0, 1]
+    # range (approximately), but bash doesn't support floating point operations.
+    afplay /System/Library/Sounds/Glass.aiff
+else
+    # paplay expects volume between 0 and 65536. This is our internal value.
+    VOLUME_65536=$(( $VOLUME * 65536 / 100))
+
+    DING_FILE=/usr/share/sounds/freedesktop/stereo/complete.oga
+
+    paplay $DING_FILE --volume $VOLUME_65536 &
+fi
