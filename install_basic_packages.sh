@@ -8,6 +8,7 @@ echo "Installing a bunch of packages, this will require sudo access"
 sudo aptitude -v install \
     ack-grep \
     build-essential automake ccache \
+    bash-completion \
     emacs emacs-goodies-el auto-complete-el \
     gnome-do gnome-do-plugins \
     libgsl0-dev gsl-bin \
