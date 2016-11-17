@@ -57,7 +57,7 @@ plugins=(gitfast repo)
 
 source $ZSH/oh-my-zsh.sh
 
-source .zshrc.d/felixd.zshrc
+source ~/.zshrc.d/felixd.zshrc
 
 
 # User configuration
