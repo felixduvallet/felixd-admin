@@ -9,6 +9,7 @@ sudo aptitude -v install \
     ack-grep \
     build-essential automake ccache \
     bash-completion \
+    zsh \
     emacs emacs-goodies-el auto-complete-el \
     gnome-do gnome-do-plugins \
     libgsl0-dev gsl-bin \
