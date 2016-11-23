@@ -91,7 +91,14 @@ export PATH=$PATH:$HOME/scripts
 
 # TODO: lesspipe
 
-# Global aliases: can be used anywhere within a command
+# ROS
+ROS_ROOT=/opt/ros/indigo/
+ROS_SETUP=$ROS_ROOT/setup.zsh
+
+if [ -f $ROS_SETUP ]
+then
+    source $ROS_SETUP
+fi
 
 ###############
 ## OSX stuff ##
