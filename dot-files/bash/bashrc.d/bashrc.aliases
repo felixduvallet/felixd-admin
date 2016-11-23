@@ -51,6 +51,16 @@ esac
 # Symlink to a often-used working directory (for example current
 # project, assignment, etc...), symlinked in home as currentdir
 alias cdcurrent='cd -P ~/currentdir'
+makecurrent() {
+    # Remove old currentdir
+    if [ -d ~/currentdir ]
+    then
+        rm -v ~/currentdir
+    fi
+
+    # Alias new directory
+    ln -sv `pwd` ~/currentdir
+}
 
 # Show largest (size) 10 files, sorted.
 alias dums='du -cms * | sort -rn | head'

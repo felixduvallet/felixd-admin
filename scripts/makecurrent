@@ -1,9 +1,0 @@
-# Make 'pwd' the "current" directory -- i.e. symlinked to ~/currentdir
-#
-# Author: Felix Duvallet, February 2010.
-
-# Remove old currentdir
-rm -v ~/currentdir
-
-# Alias new directory
-ln -sv `pwd` ~/currentdir

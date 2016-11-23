@@ -38,6 +38,20 @@ alias xclip='xclip -selection c'
 # QIV - quick image viewer (for current directory)
 alias q.='qiv .'
 
+# cd to the 'latest' current directory. Note that this *must* be an alias (not a
+# script) since a script would execute in its own shell.
+alias cdcurrent='cd -P ~/currentdir'
+makecurrent() {
+    # Remove old currentdir
+    if [ -d ~/currentdir ]
+    then
+        rm -v ~/currentdir
+    fi
+
+    # Alias new directory
+    ln -sv `pwd` ~/currentdir
+}
+
 #############
 ## Options ##
 #############
