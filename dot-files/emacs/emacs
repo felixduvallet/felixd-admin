@@ -132,9 +132,3 @@ string2))) string2))
       (let ((fill-column (point-max)))
         (fill-paragraph nil)))
 (global-set-key "\C-cq"  'unfill-paragraph)   ; bind to control-c + q
-
-
-
-;;; ............................................................
-;;; ROS customizations
-(load "~/.emacs.d/ros-emacs-felixd.el")
