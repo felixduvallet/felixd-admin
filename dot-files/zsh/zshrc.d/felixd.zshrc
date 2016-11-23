@@ -85,6 +85,7 @@ export PYTHONPATH=$PYTHONPATH:""
 # Enable ccache by prepending its directory to the path: ccache will get called
 # instead of the compiler.
 export PATH=/usr/lib/ccache:$PATH
+export CCACHE_CPP2=true
 
 # Add scripts to path.
 export PATH=$PATH:$HOME/scripts
