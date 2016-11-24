@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 #
 # Script to play a ding sound through your speakers.  Vastly superior to beep
 # command.  Specify ding file to play in DING_FILE. Requires pulseaudio
@@ -14,8 +14,7 @@ fi
 # Threshold at 100.
 VOLUME=$(($VOLUME<100?$VOLUME:100))
 
-
-# In Linux, use paply. Under OSX, use afplay.
+# In Linux, use paplay. Under OSX, use afplay.
 if [[ $OSTYPE == *"darwin"* ]]; then
     # TODO: support volume. Note that afplay expects normal volumes in [0, 1]
     # range (approximately), but bash doesn't support floating point operations.
