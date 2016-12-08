@@ -56,6 +56,9 @@ makecurrent() {
 ## Options ##
 #############
 
+# Tab completion without filling in the first option.
+setopt noautomenu
+
 # hostname: useful for many things
 export HOSTNAME
 
@@ -86,6 +89,9 @@ export PYTHONPATH=$PYTHONPATH:""
 # instead of the compiler.
 export PATH=/usr/lib/ccache:$PATH
 export CCACHE_CPP2=true
+
+# Enable distcc for faster network compilation
+export CCACHE_PREFIX="distcc"
 
 # Add scripts to path.
 export PATH=$PATH:$HOME/scripts
