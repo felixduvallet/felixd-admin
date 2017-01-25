@@ -90,13 +90,14 @@ export PYTHONPATH=$PYTHONPATH:""
 export PATH=/usr/lib/ccache:$PATH
 export CCACHE_CPP2=true
 
-# Enable distcc for faster network compilation
-export CCACHE_PREFIX="distcc"
+# Enable distcc for faster network compilation [disabled for now]
+## export CCACHE_PREFIX="distcc"
 
 # Add scripts to path.
 export PATH=$PATH:$HOME/scripts
 
-# TODO: lesspipe
+# lesspipe
+[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
 # ROS
 ROS_ROOT=/opt/ros/indigo/
