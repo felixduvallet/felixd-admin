@@ -93,6 +93,10 @@ export CCACHE_CPP2=true
 # Enable distcc for faster network compilation [disabled for now]
 ## export CCACHE_PREFIX="distcc"
 
+# NINJA header:
+## percent_done [num_finished/num_running/num_left] elapsed_time, jobs-per-second.
+export NINJA_STATUS="%p [%f/%r/%u] %e %c | "
+
 # Add scripts to path.
 export PATH=$PATH:$HOME/scripts
 
