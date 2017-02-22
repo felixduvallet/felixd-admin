@@ -89,6 +89,8 @@ export PYTHONPATH=$PYTHONPATH:""
 # instead of the compiler.
 export PATH=/usr/lib/ccache:$PATH
 export CCACHE_CPP2=true
+# Tell ccache to ignore __DATE__ and __TIME__ macros.
+export CCACHE_SLOPPINESS=time_macros
 
 # Enable distcc for faster network compilation [disabled for now]
 ## export CCACHE_PREFIX="distcc"
