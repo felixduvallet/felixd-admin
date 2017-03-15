@@ -62,6 +62,9 @@ setopt noautomenu
 # hostname: useful for many things
 export HOSTNAME
 
+# Set all localization settings across the board.
+export LC_ALL="C"
+
 # Make less search case insensitively (-I), and display colors (-R)
 export LESS="-M -I -R"
 
