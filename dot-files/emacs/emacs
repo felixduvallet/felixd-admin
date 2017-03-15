@@ -10,7 +10,7 @@
  '(compilation-scroll-output 'first-error)
  '(compilation-skip-threshold 2)  ;; skip warnings, not errors.
  '(confirm-kill-emacs (quote y-or-n-p))
- '(fill-column 80)
+ '(fill-column 79)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(iswitchb-mode t)
