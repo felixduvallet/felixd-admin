@@ -141,3 +141,14 @@ string2))) string2))
 
 (global-set-key "\C-cf"  'clang-format)   ; control-c + f = format highlighted region
 (global-set-key "\C-cg"  'clang-format-buffer)   ; control-c + g = format entire buffer
+
+;;; ............................................................
+;; find-other-file configuration: Looks up the corresponding .cpp/.h file.
+(defvar my-cpp-other-file-alist
+  '(("\\.cpp\\'" (".h"))
+    ("\\.h\\'" (".cpp" ".c"))
+    ("\\.c\\'" (".h"))
+    ))
+(setq-default ff-other-file-alist 'my-cpp-other-file-alist)
+;; Tells ff-search-directories where to look for files.
+(setq cc-search-directories '("." "../../../src/" "../include/*/*"))
