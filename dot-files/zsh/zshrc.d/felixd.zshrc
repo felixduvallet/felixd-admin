@@ -38,6 +38,9 @@ alias xclip='xclip -selection c'
 # QIV - quick image viewer (for current directory)
 alias q.='qiv .'
 
+# Rename images to time taken: YY-MM-DD HH.MM.SS.ext.
+alias img_rename='head -n"%Y-%m-%d %H.%M.%S"'
+
 # cd to the 'latest' current directory. Note that this *must* be an alias (not a
 # script) since a script would execute in its own shell.
 alias cdcurrent='cd -P ~/currentdir'
