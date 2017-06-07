@@ -7,6 +7,7 @@ echo "Installing a bunch of packages, this will require sudo access"
 # Things everyone needs
 sudo aptitude -v install \
     ack-grep \
+    wget curl \
     build-essential automake ccache \
     bash-completion \
     zsh \
