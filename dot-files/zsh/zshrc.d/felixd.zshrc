@@ -106,7 +106,7 @@ export CCACHE_SLOPPINESS=time_macros
 export NINJA_STATUS="%p [%f/%r/%u] %e %c | "
 
 # Add scripts to path.
-export PATH=$PATH:$HOME/scripts
+export PATH=$PATH:$HOME/bin:$HOME/scripts
 
 # lesspipe
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
