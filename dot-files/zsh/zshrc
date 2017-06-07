@@ -57,8 +57,11 @@ plugins=(gitfast repo command-not-found ubuntu)
 
 source $ZSH/oh-my-zsh.sh
 
-source ~/.zshrc.d/felixd.zshrc
-
+ZSHRC_FELIX=~/.zshrc.d/felixd.zshrc
+if [ -f $ZSHRC_FELIX ]
+then
+    source $ZSHRC_FELIX
+fi
 
 # User configuration
 
