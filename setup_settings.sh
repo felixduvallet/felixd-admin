@@ -88,7 +88,9 @@ then
     mkdir -p ~/.config/ipython/profile_default/
 fi
 
-LN_FILE_IF_POSSIBLE  $ADMIN_DIR/dot-files/ipython/ipython_config.py ~/.config/ipython/profile_default/ipython_config.py
+LN_FILE_IF_POSSIBLE $ADMIN_DIR/dot-files/ipython/ipython_config.py ~/.config/ipython/profile_default/ipython_config.py
 
 # xmodmap (key binding settings, may be optional)
 LN_FILE_IF_POSSIBLE $ADMIN_DIR/dot-files/xmodmap/xmodmaprc ~/.xmodmaprc
+
+LN_FILE_IF_POSSIBLE $ADMIN_DIR/dot-files/ack-grep/ackrc ~/.ackrc
