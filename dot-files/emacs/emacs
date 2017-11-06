@@ -115,6 +115,8 @@
            (backward-up-sexp (1- arg)))
           ((backward-up-list arg)))))
 
+;; Bind this to Control+Meta+u. To "mark" the region, follow with
+;; Control+Meta+Space.
 (global-set-key [remap backward-up-list] 'backward-up-sexp)
 
 ;;; ............................................................
@@ -163,4 +165,4 @@ string2))) string2))
     ))
 (setq-default ff-other-file-alist 'my-cpp-other-file-alist)
 ;; Tells ff-search-directories where to look for files.
-(setq cc-search-directories '("." "../../../src/" "../include/*/*"))
+(setq cc-search-directories '("." "../../../src/" "../include/*/*" "../src/" "../include/"))
