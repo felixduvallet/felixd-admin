@@ -4,6 +4,8 @@
 
 echo "Installing a bunch of packages, this will require sudo access"
 
+sudo apt-get install aptitude
+
 # Things everyone needs
 sudo aptitude -v install \
     ack-grep \
