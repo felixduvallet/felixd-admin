@@ -1,14 +1,14 @@
 ;; -*- mode:emacs-lisp -*-
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(c-basic-offset 2)
  '(c-default-style (quote ((c-mode . "bsd") (c++-mode . "bsd") (java-mode . "java") (awk-mode . "awk") (other . "gnu"))))
  '(column-number-mode t)
- '(compilation-scroll-output 'first-error)
- '(compilation-skip-threshold 2)  ;; skip warnings, not errors.
+ '(compilation-scroll-output (quote first-error))
+ '(compilation-skip-threshold 2)
  '(confirm-kill-emacs (quote y-or-n-p))
  '(fill-column 79)
  '(indent-tabs-mode nil)
@@ -18,8 +18,8 @@
  '(setq-default tab-width t)
  '(show-paren-mode t)
  '(transient-mark-mode t)
- '(vc-follow-symlinks nil)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
+ '(vc-follow-symlinks nil)
  '(x-select-enable-clipboard t))
 
 ;; Unbind `C-x f', normally used to set fill-column width (but easily confused
@@ -166,3 +166,35 @@ string2))) string2))
 (setq-default ff-other-file-alist 'my-cpp-other-file-alist)
 ;; Tells ff-search-directories where to look for files.
 (setq cc-search-directories '("." "../../../src/" "../include/*/*" "../src/" "../include/"))
+
+
+;;; ............................................................
+;;; Package configuation: get packages from MELPA.
+(require 'package)
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  (when (< emacs-major-version 24)
+    ;; For important compatibility libraries like cl-lib
+    (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
+(package-initialize)
+
+;; NOTE: Install the following packages:
+;;   - projectile
+;;   - grizzl
+;;   - flx-ido
+;;
+
+;;; ............................................................
+;;; Projectile package: project integration
+;;; http://projectile.readthedocs.io/en/latest/configuration/
+(setq projectile-completion-system 'grizzl)
+(setq projectile-enable-caching t)
+;; Does not work yet:
+;; (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+;; (define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
+;; (define-key projectile-mode-map [?\s-f] 'projectile-find-file)
+;; (define-key projectile-mode-map [?\s-g] 'projectile-grep)
