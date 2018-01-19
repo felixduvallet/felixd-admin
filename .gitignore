@@ -1,2 +1,6 @@
 *~
+
+dot-files/emacs/emacs.d/elpa/
+dot-files/emacs/emacs.d/projectile-bookmarks.eld
+dot-files/emacs/emacs.d/projectile.cache
 dot-files/emacs/emacs.d/ac-comphist.dat
