@@ -14,6 +14,7 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(iswitchb-mode t)
+ '(json-reformat:indent-width 2)
  '(python-indent 4)
  '(setq-default tab-width t)
  '(show-paren-mode t)
