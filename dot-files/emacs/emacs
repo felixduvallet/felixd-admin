@@ -44,25 +44,30 @@
 (global-set-key "\C-cd" 'c-hungry-delete-forward)
 (global-set-key (kbd "C-<backspace>") 'c-hungry-delete-backwards)
 
+;; Compilation
 (global-set-key "\C-xc"  'compile)   ; bind control-x + c to compile
 (global-set-key [f11] 'compile)
 (global-set-key [f12] 'recompile)
 
+;; Sorting
 (global-set-key "\C-cu"  'sort-lines)   ; bind to control-c + u (sort highlighted lines)
 
-;; rotate files (open .cc/.h alternatively) w/ control-c + h
-(global-set-key "\C-ch" 'ff-find-other-file)
+;; Highlight *all* mis-spelled words in a buffer, not just from this session.
+(add-hook 'flyspell-mode-hook 'flyspell-buffer)
 
 ;; Subword mode allows CamelCaseAware editing, in all programming modes.
 (add-hook 'prog-mode-hook 'subword-mode)
 (add-hook 'c-mode-common-hook
 	  (lambda () (subword-mode 1)))
 
+;;
+
+;; ..............................................
 ;; auto-complete
 (add-to-list 'load-path "~/.emacs.d/")
 (require 'auto-complete)
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (ac-config-default)
 
 ;; Autocomplete customizations: make auto-complete wait for at least 4
@@ -71,13 +76,16 @@
 (setq ac-auto-start 4)
 (setq ac-auto-show-menu 0.5)
 
+;; ....................................
+;; Programming
+
 ;; Emacs c-style guide. Use 100 character line width.
 (require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook (lambda () (set-fill-column 100)))
 
-;; Highlight *all* mis-spelled words in a buffer, not just from this session.
-(add-hook 'flyspell-mode-hook 'flyspell-buffer)
+;; ................................
+;; Theming.
 
 ;; Solarized color theme: https://github.com/sellout/emacs-color-theme-solarized
 (require 'color-theme-solarized)
@@ -85,7 +93,6 @@
   '(progn
      (color-theme-initialize)
      (color-theme-solarized-light)))
-;; (load-theme 'solarized-light t)
 
 ;; Disable theme in terminal mode
 (defun on-frame-open (frame)
@@ -107,7 +114,8 @@
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 ;;; ............................................................
-;; Select entire region delimited by parentheses.
+;; Select entire region delimited by parentheses. Bind to Control+Meta+u. To
+;; "mark" the region, follow with Control+Meta+Space.
 (defun backward-up-sexp (arg)
   (interactive "p")
   (let ((ppss (syntax-ppss)))
@@ -115,9 +123,6 @@
            (goto-char (elt ppss 8))
            (backward-up-sexp (1- arg)))
           ((backward-up-list arg)))))
-
-;; Bind this to Control+Meta+u. To "mark" the region, follow with
-;; Control+Meta+Space.
 (global-set-key [remap backward-up-list] 'backward-up-sexp)
 
 ;;; ............................................................
@@ -148,26 +153,25 @@ string2))) string2))
         (fill-paragraph nil)))
 (global-set-key "\C-cq"  'unfill-paragraph)   ; bind to control-c + q
 
-
-
 ;;; ............................................................
-;;; clang auto formatting
+;;; clang code formatting
 (load "clang-format.el")
 
 (global-set-key "\C-cf"  'clang-format)   ; control-c + f = format highlighted region
 (global-set-key "\C-cg"  'clang-format-buffer)   ; control-c + g = format entire buffer
 
 ;;; ............................................................
-;; find-other-file configuration: Looks up the corresponding .cpp/.h file.
+;; find-other-file: Open the corresponding .cpp/.h file w/ control-c + h. Looks
+;; in various "common" places.
+(global-set-key "\C-ch" 'ff-find-other-file)
+
 (defvar my-cpp-other-file-alist
   '(("\\.cpp\\'" (".h"))
     ("\\.h\\'" (".cpp" ".c"))
     ("\\.c\\'" (".h"))
     ))
 (setq-default ff-other-file-alist 'my-cpp-other-file-alist)
-;; Tells ff-search-directories where to look for files.
 (setq cc-search-directories '("." "../../../src/" "../include/*/*" "../src/" "../include/"))
-
 
 ;;; ............................................................
 ;;; Package configuation: get packages from MELPA.
