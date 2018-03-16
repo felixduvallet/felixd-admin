@@ -160,6 +160,11 @@ extract () {
     fi
 }
 
+# Display all unique headers included inside a directory.
+headers() {
+    ack-grep -h include | sort | uniq -c | sort -n
+}
+
 # Delete all *~ temporary files.
 rmtmp() {
     find . -type f -name "*~" -exec rm -v -- {} +
