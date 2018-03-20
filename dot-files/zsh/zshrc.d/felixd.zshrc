@@ -190,3 +190,7 @@ _upto() {
     compadd -V 'Parent Dirs' -- "${(Oa)parents[@]}";
 }
 compdef _upto upto
+
+# ninja tab completion, defined in ninja-completion.zsh.
+ZSHRC_ROOT="$(dirname $0)"
+source $ZSHRC_ROOT/ninja-completion.zsh
