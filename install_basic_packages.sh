@@ -31,4 +31,4 @@ sudo aptitude -v install \
     tmux
 
 # NOTE: very slow
-sudo aptitude -v install texlive-full
+# sudo aptitude -v install texlive-full
