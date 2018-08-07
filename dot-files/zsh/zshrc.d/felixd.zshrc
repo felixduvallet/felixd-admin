@@ -191,6 +191,18 @@ _upto() {
 }
 compdef _upto upto
 
-# ninja tab completion, defined in ninja-completion.zsh.
+# Get the current directory.
 ZSHRC_ROOT="$(dirname $0)"
+
+# Ninja tab completion, note that it's quite slow for big projects.
 source $ZSHRC_ROOT/ninja-completion.zsh
+
+# Bazel completion, with caching (create the cache directory if necessary).
+source $ZSHRC_ROOT/bazel.zsh
+compdef _bazel bazel
+
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+if [ ! -d ~/zsh/cache ]; then
+    mkdir -p ~/.zsh/cache
+fi
