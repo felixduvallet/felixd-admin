@@ -93,7 +93,7 @@ export PYTHONPATH=$PYTHONPATH:""
 
 # Enable ccache by prepending its directory to the path: ccache will get called
 # instead of the compiler.
-export PATH=/usr/lib/ccache:$PATH
+# export PATH=/usr/lib/ccache:$PATH
 export CCACHE_CPP2=true
 # Tell ccache to ignore __DATE__ and __TIME__ macros.
 export CCACHE_SLOPPINESS=time_macros
