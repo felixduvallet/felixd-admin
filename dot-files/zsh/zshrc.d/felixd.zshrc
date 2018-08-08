@@ -71,9 +71,6 @@ export LC_ALL="en_US.UTF-8"
 # Make less search case insensitively (-I), and display colors (-R)
 export LESS="-M -I -R"
 
-# Make grep colorized
-export GREP_OPTIONS='--color=auto'
-
 # Editor settings
 export EDITOR=emacs
 export GIT_EDITOR='emacs -nw -q'
