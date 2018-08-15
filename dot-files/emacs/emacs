@@ -23,7 +23,7 @@
  '(json-reformat:indent-width 2)
  '(package-selected-packages
    (quote
-    (solarized-theme google-c-style ivy grizzl flx-ido projectile auto-complete)))
+    (clang-format google-c-style ivy grizzl flx-ido projectile auto-complete)))
  '(python-indent 4)
  '(select-enable-clipboard t)
  '(setq-default tab-width t)
@@ -96,6 +96,8 @@
 ;; Theming.
 
 ;; Solarized color theme: https://github.com/sellout/emacs-color-theme-solarized
+;; NOTE: For whatever reason I prefer this particular implementation over
+;; what's available in the package repository.
 (require 'color-theme-solarized)
 (eval-after-load "color-theme"
   '(progn
@@ -163,8 +165,6 @@ string2))) string2))
 
 ;;; ............................................................
 ;;; clang code formatting
-(load "clang-format.el")
-
 (global-set-key "\C-cf"  'clang-format)   ; control-c + f = format highlighted region
 (global-set-key "\C-cg"  'clang-format-buffer)   ; control-c + g = format entire buffer
 
