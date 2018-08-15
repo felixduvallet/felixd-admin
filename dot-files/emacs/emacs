@@ -21,7 +21,9 @@
  '(inhibit-startup-screen t)
  '(iswitchb-mode t)
  '(json-reformat:indent-width 2)
- '(package-selected-packages (quote (ivy grizzl flx-ido projectile auto-complete)))
+ '(package-selected-packages
+   (quote
+    (solarized-theme google-c-style ivy grizzl flx-ido projectile auto-complete)))
  '(python-indent 4)
  '(select-enable-clipboard t)
  '(setq-default tab-width t)
@@ -71,7 +73,7 @@
 
 ;; ..............................................
 ;; auto-complete
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d")
 (require 'auto-complete)
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
@@ -87,7 +89,6 @@
 ;; Programming
 
 ;; Emacs c-style guide. Use 100 character line width.
-(require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook (lambda () (set-fill-column 100)))
 
