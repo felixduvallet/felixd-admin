@@ -5,7 +5,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(c-basic-offset 2)
- '(c-default-style (quote ((c-mode . "bsd") (c++-mode . "bsd") (java-mode . "java") (awk-mode . "awk") (other . "gnu"))))
+ '(c-default-style
+   (quote
+    ((c-mode . "bsd")
+     (c++-mode . "bsd")
+     (java-mode . "java")
+     (awk-mode . "awk")
+     (other . "gnu"))))
  '(column-number-mode t)
  '(compilation-scroll-output (quote first-error))
  '(compilation-skip-threshold 2)
@@ -15,13 +21,14 @@
  '(inhibit-startup-screen t)
  '(iswitchb-mode t)
  '(json-reformat:indent-width 2)
+ '(package-selected-packages (quote (ivy grizzl flx-ido projectile auto-complete)))
  '(python-indent 4)
+ '(select-enable-clipboard t)
  '(setq-default tab-width t)
  '(show-paren-mode t)
  '(transient-mark-mode t)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
- '(vc-follow-symlinks nil)
- '(x-select-enable-clipboard t))
+ '(vc-follow-symlinks nil))
 
 ;; Unbind `C-x f', normally used to set fill-column width (but easily confused
 ;; by C-x C-f.
@@ -189,17 +196,23 @@ string2))) string2))
 
 ;; NOTE: Install the following packages:
 ;;   - projectile
-;;   - grizzl
+;;   - ivy
 ;;   - flx-ido
 ;;
 
 ;;; ............................................................
 ;;; Projectile package: project integration
 ;;; http://projectile.readthedocs.io/en/latest/configuration/
-(setq projectile-completion-system 'grizzl)
+(setq projectile-completion-system 'ivy)
 (setq projectile-enable-caching t)
 ;; Does not work yet:
 ;; (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 ;; (define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
 ;; (define-key projectile-mode-map [?\s-f] 'projectile-find-file)
 ;; (define-key projectile-mode-map [?\s-g] 'projectile-grep)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
