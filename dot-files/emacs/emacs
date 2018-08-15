@@ -92,6 +92,9 @@
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook (lambda () (set-fill-column 100)))
 
+;; Make the RETURN key go to the next line and space over to the right indent.
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
 ;; ................................
 ;; Theming.
 
@@ -204,13 +207,11 @@ string2))) string2))
 ;;; ............................................................
 ;;; Projectile package: project integration
 ;;; http://projectile.readthedocs.io/en/latest/configuration/
+;;; Use Ctrl-C, p as command prefix.
 (setq projectile-completion-system 'ivy)
 (setq projectile-enable-caching t)
-;; Does not work yet:
-;; (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-;; (define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
-;; (define-key projectile-mode-map [?\s-f] 'projectile-find-file)
-;; (define-key projectile-mode-map [?\s-g] 'projectile-grep)
+(setq projectile-keymap-prefix (kbd "C-c p"))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
