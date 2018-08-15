@@ -61,7 +61,8 @@ LN_DIR_IF_POSSIBLE $ADMIN_DIR/dot-files/zsh/zshrc.d ~/.zshrc.d
 
 # Emacs: .emacs file and .emacs.d directory
 LN_FILE_IF_POSSIBLE $ADMIN_DIR/dot-files/emacs/emacs ~/.emacs
-LN_DIR_IF_POSSIBLE $ADMIN_DIR/dot-files/emacs/emacs.d ~/.emacs.d
+mkdir -p ~/.emacs.d/
+LN_DIR_IF_POSSIBLE $ADMIN_DIR/dot-files/emacs/emacs.d/custom.d ~/.emacs.d/custom.d
 
 # Mercurial, git
 LN_FILE_IF_POSSIBLE $ADMIN_DIR/dot-files/hg/hgrc ~/.hgrc
