@@ -1,2 +1,7 @@
+# CMake build
 --ignore-dir=build
 --ignore-dir=cmake-build-debug
+
+# Bazel build
+--ignore-dir=bazel-*
+--ignore-dir=.cache
