@@ -26,7 +26,6 @@ sudo aptitude -v install \
     qiv imagemagick \
     rake \
     libpython-all-dev \
-    texlive-binaries texlive-latex-base texlive-latex-extra \
     meld \
     tmux
 
