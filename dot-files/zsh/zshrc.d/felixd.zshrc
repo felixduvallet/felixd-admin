@@ -105,6 +105,9 @@ export NINJA_STATUS="%p [%f/%r/%u] %e %c | "
 # Add scripts to path.
 export PATH=$PATH:$HOME/bin:$HOME/scripts
 
+# Add snap to PATH.
+export PATH=$PATH:/snap/bin
+
 # lesspipe
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
