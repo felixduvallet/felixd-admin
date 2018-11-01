@@ -1,37 +1,43 @@
 [user]
-        name = Felix Duvallet
-        email = felixd@gmail.com
+    name = Felix Duvallet
+    email = felixd@gmail.com
+
+# Conditional include for any work-related repositories. Define overrides in
+# ~/proj/.gitconfig
+[includeIf "gitdir:~/proj/*"]
+    path = ~/proj/.gitconfig
+
 [alias]
-        a = add .
-        b = branch
-        c = commit
-        ci = commit
-        ic = commit
-        dif = diff
-        st = status
-        co = checkout
-        l = log --abbrev-commit --decorate --stat
-        lg = log --abbrev-commit --decorate --graph
-        lol = log --abbrev-commit --graph --date=short --pretty=oneline --format='%C(yellow)%h %C(red)%ad %C(green)%an%C(auto)%d %C(reset)%s'
-        lola = log --abbrev-commit --graph --date=short --pretty=oneline --format='%C(yellow)%h %C(red)%ad %C(green)%an%C(auto)%d %C(reset)%s' --all
-        ls = ls-files
-        wdiff = diff --color-words
-        # Incoming and outgoing changes
-        incoming = !git fetch && git log ..origin/master
-        outgoing = !git fetch && git log origin/master..
+    a = add .
+    b = branch
+    c = commit
+    ci = commit
+    ic = commit
+    dif = diff
+    st = status
+    co = checkout
+    l = log --abbrev-commit --decorate --stat
+    lg = log --abbrev-commit --decorate --graph
+    lol = log --abbrev-commit --graph --date=short --pretty=oneline --format='%C(yellow)%h %C(red)%ad %C(green)%an%C(auto)%d %C(reset)%s'
+        lola = log --abbrev-commit --graph --date=short --pretty=oneline --format='%C(yellow)%h %C(red)%ad C(green)%an%C(auto)%d %C(reset)%s' --all
+    ls = ls-files
+    wdiff = diff --color-words
+    # Incoming and outgoing changes
+    incoming = !git fetch && git log ..origin/master
+    outgoing = !git fetch && git log origin/master..
 [color]
-        branch = auto
-        diff = auto
-        interactive = auto
-        status = auto
-        ui = auto
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+    ui = auto
 [core]
-        pager = less -r
+    pager = less -r
 [credential]
-        helper = cache --timeout=86400
+    helper = cache --timeout=86400
 [merge]
-        conflictstyle = diff3
+    conflictstyle = diff3
 [push]
-        default = simple
+    default = simple
 [pager]
-        branch = false
+    branch = false
