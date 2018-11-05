@@ -1,8 +1,13 @@
 {
+	"added_words":
+	[
+		"handovers"
+	],
 	"color_scheme": "Packages/Color Scheme - Default/Solarized (Light).tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"ignored_packages":
 	[
+		"Package Control",
 		"Vintage"
 	],
 	"shift_tab_unindent": true,
