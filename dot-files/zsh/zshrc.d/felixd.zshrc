@@ -6,6 +6,7 @@
 
 # Convenience & typo aliases
 alias lh='ls -lhF'
+alias lla='ls -lahF'
 alias llh='ls -lhF'
 alias sl=ls
 alias lks=ls
