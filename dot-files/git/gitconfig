@@ -19,7 +19,7 @@
     l = log --abbrev-commit --decorate --stat
     lg = log --abbrev-commit --decorate --graph
     lol = log --abbrev-commit --graph --date=short --pretty=oneline --format='%C(yellow)%h %C(red)%ad %C(green)%an%C(auto)%d %C(reset)%s'
-        lola = log --abbrev-commit --graph --date=short --pretty=oneline --format='%C(yellow)%h %C(red)%ad C(green)%an%C(auto)%d %C(reset)%s' --all
+    lola = log --abbrev-commit --graph --date=short --pretty=oneline --format='%C(yellow)%h %C(red)%ad %C(green)%an%C(auto)%d %C(reset)%s' --all
     ls = ls-files
     wdiff = diff --color-words
     # Incoming and outgoing changes
