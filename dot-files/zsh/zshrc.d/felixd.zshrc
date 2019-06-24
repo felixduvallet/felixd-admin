@@ -89,6 +89,10 @@ export ALTERNATE_EDITOR=nano
 # the current directory to PYTHONPATH (yes, this is weird).
 export PYTHONPATH=$PYTHONPATH:""
 
+# go home & path.
+export GOPATH=$(go env GOPATH)
+export PATH=$PATH:$(go env GOPATH)/bin
+
 # Enable ccache by prepending its directory to the path: ccache will get called
 # instead of the compiler.
 # export PATH=/usr/lib/ccache:$PATH
