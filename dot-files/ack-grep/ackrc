@@ -5,3 +5,6 @@
 # Bazel build
 --ignore-dir=bazel-*
 --ignore-dir=.cache
+
+# python-env
+--ignore-dir=kodiak_python_env
