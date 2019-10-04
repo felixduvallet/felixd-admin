@@ -25,7 +25,7 @@ fi
 git checkout -q master
 for branch in $(git for-each-ref refs/remotes/origin "--format=%(refname:short)"); do
     # Skip branches containing HEAD, master.
-    if [[ "$branch" == *"master"* || "$branch" == *"HEAD"* ]]; then
+    if [[ "$branch" == *"master"* || "$branch" == *"candidate"* || "$branch" == *"stable"* || "$branch" == *"HEAD"* ]]; then
         continue
     fi
 
