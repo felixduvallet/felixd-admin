@@ -23,7 +23,7 @@
  '(json-reformat:indent-width 2)
  '(package-selected-packages
    (quote
-    (clang-format google-c-style ivy grizzl flx-ido projectile auto-complete)))
+    (docker docker-compose-mode clang-format google-c-style ivy grizzl flx-ido projectile auto-complete)))
  '(python-indent 4)
  '(select-enable-clipboard t)
  '(setq-default tab-width t)
@@ -218,3 +218,4 @@ string2))) string2))
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'erase-buffer 'disabled nil)
