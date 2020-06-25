@@ -89,6 +89,7 @@ export ALTERNATE_EDITOR=nano
 # the current directory to PYTHONPATH (yes, this is weird).
 export PYTHONPATH=$PYTHONPATH:""
 
+# Add scripts to path.
 export PATH=$PATH:$HOME/bin:$HOME/scripts
 export PATH=$PATH:/snap/bin
 export PATH=$PATH:$(go env GOPATH)/bin
