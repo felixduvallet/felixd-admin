@@ -89,37 +89,12 @@ export ALTERNATE_EDITOR=nano
 # the current directory to PYTHONPATH (yes, this is weird).
 export PYTHONPATH=$PYTHONPATH:""
 
-# Enable ccache by prepending its directory to the path: ccache will get called
-# instead of the compiler.
-# export PATH=/usr/lib/ccache:$PATH
-export CCACHE_CPP2=true
-# Tell ccache to ignore __DATE__ and __TIME__ macros.
-export CCACHE_SLOPPINESS=time_macros
-
-# Enable distcc for faster network compilation [disabled for now]
-## export CCACHE_PREFIX="distcc"
-
-# NINJA header:
-## percent_done [num_finished/num_running/num_left] elapsed_time, jobs-per-second.
-export NINJA_STATUS="%p [%f/%r/%u] %e %c | "
-
-# Add scripts to path.
 export PATH=$PATH:$HOME/bin:$HOME/scripts
-
-# Add snap to PATH.
 export PATH=$PATH:/snap/bin
+export PATH=$PATH:$(go env GOPATH)/bin
 
 # lesspipe
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
-
-# ROS
-ROS_ROOT=/opt/ros/indigo/
-ROS_SETUP=$ROS_ROOT/setup.zsh
-
-if [ -f $ROS_SETUP ]
-then
-    source $ROS_SETUP
-fi
 
 ###############
 ## OSX stuff ##
