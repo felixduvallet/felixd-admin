@@ -5,3 +5,7 @@
 # Bazel build
 --ignore-dir=bazel-*
 --ignore-dir=.cache
+
+# Other files & directories.
+--ignore-dir=kodiak_python_env
+--ignore-file=is:compile_commands.json
