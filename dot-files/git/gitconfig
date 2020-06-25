@@ -16,6 +16,7 @@
     dif = diff
     st = status
     co = checkout
+    pum = pull upstream master
     l = log --abbrev-commit --decorate --stat
     lg = log --abbrev-commit --decorate --graph
     lol = log --abbrev-commit --graph --date=short --pretty=oneline --format='%C(yellow)%h %C(red)%ad %C(green)%an%C(auto)%d %C(reset)%s'
@@ -31,6 +32,18 @@
     interactive = auto
     status = auto
     ui = auto
+[color "diff-highlight"]
+    oldNormal = red
+    oldHighlight = red bold
+    newNormal = green
+    newHighlight = green bold
+[color "diff"]
+    commit = green
+    meta = yellow
+    frag = cyan
+    old = red
+    new = green
+    whitespace = red reverse
 [core]
     pager = less -r
 [credential]
@@ -41,3 +54,8 @@
     default = simple
 [pager]
     branch = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
